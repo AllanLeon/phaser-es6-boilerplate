@@ -10,7 +10,7 @@ class ObstacleColumn extends Phaser.Group {
     top.anchor.setTo(0, 0);
     //top.angle += 180;
     //top.body.rotation += 180;
-    let bottom = new Obstacle(this.game, 400, y + 300);
+    let bottom = new Obstacle(this.game, 400, y + 150);
     bottom.anchor.setTo(0, 0);
     bottom.scale.setTo(0.5, 2);
     this.add(top);
