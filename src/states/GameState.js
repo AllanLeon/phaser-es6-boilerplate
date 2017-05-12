@@ -19,6 +19,9 @@ class GameState extends Phaser.State {
 		this.bird = new Bird(this.game, 150, this.game.world.centerY);
 		this.obstacles = new ObstacleGenerator(this.game);
 
+		this.bird.checkWorldBounds = true;
+    this.bird.events.onOutOfBounds.add(this.restartGame, this);
+
 		this.game.world.bringToTop(this.game.score);
 	}
 
@@ -26,9 +29,6 @@ class GameState extends Phaser.State {
 		// This function is called 60 times per second
     // It contains the game's logic
 		this.obstacles.update(this.bird, this.restartGame);
-		if (this.bird.y < 0 || this.bird.y > 500) {
-      this.restartGame();
-		}
 	}
 
 	restartGame() {
