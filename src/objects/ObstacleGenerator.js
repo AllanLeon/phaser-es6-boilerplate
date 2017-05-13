@@ -5,11 +5,11 @@ class ObstacleGenerator extends Phaser.Group {
     super(game);
     this.game.add.existing(this);
 
-    this.game.time.events.loop(Phaser.Timer.SECOND * 2, this.generateObstaclesAtRandomPosition, this);
+    this.game.time.events.loop(Phaser.Timer.SECOND * 3, this.generateObstaclesAtRandomPosition, this);
   }
 
   generateObstaclesAtRandomPosition() {
-    let obstacles = new ObstacleColumn(this.game, this.game.rnd.integerInRange(100, 200));
+    let obstacles = new ObstacleColumn(this.game, this.game.rnd.integerInRange(50, 250));
     this.game.score.increase();
     this.add(obstacles);
   }

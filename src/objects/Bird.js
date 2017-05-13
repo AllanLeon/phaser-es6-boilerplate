@@ -2,7 +2,6 @@ class Bird extends Phaser.Sprite {
   constructor(game, x, y) {
     super(game, x, y, 'bird', 0);
     this.game.add.existing(this);
-    this.scale.setTo(0.1, 0.1);
 
     this.initializePhysics();
     this.initializeInput();

@@ -5,7 +5,6 @@ class Score extends Phaser.Text {
     });
     this.score = 0;
     this.game.add.existing(this);
-    console.log(this.score);
   }
 
   increase() {

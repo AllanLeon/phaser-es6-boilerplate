@@ -8,6 +8,7 @@ class GameState extends Phaser.State {
     // Here's where we load the images and sounds
 		this.game.load.image('bird', 'assets/bird.png');
 		this.game.load.image('pipe', 'assets/pipe.png');
+		this.game.load.image('background', 'assets/background.png');
 	}
 
 	create() {
@@ -15,8 +16,10 @@ class GameState extends Phaser.State {
     // Here we set up the game, display sprites, etc.
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
+		this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'background');
+
 		this.game.score = new Score(this.game, 0, 0);
-		this.bird = new Bird(this.game, 150, this.game.world.centerY);
+		this.bird = new Bird(this.game, this.game.world.width / 4, this.game.world.centerY);
 		this.obstacles = new ObstacleGenerator(this.game);
 
 		this.bird.checkWorldBounds = true;
