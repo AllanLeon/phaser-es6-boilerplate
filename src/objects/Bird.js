@@ -16,6 +16,7 @@ class Bird extends Phaser.Sprite {
   initializeInput() {
     let spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     spaceKey.onDown.add(this.jump, this);
+    this.game.input.onDown.add(this.jump, this);
   }
 
   initializeTweens() {
